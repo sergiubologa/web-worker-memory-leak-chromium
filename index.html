@@ -1,0 +1,9 @@
+<button id="button" onclick="
+    var button = this;
+    button.disabled = true;
+    var w = new Worker('worker.js');
+    w.onmessage = function() {
+        button.disabled = false;
+        w.terminate();
+    };
+">Create worker and terminate</button>
